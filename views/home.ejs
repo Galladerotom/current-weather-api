@@ -1,0 +1,49 @@
+<!-- picture api key zdZzosKoxWxFuA9pH-fJJlYc3R-bRuGXseYeyWcnnyo -->
+<!-- https://api.unsplash.com/photos/?client_id=zdZzosKoxWxFuA9pH-fJJlYc3R-bRuGXseYeyWcnnyo -->
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta http-equiv="refresh" content="600"/>
+    <title>Temperature Report</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+    <script src="https://kit.fontawesome.com/49a02d0930.js" crossorigin="anonymous"></script>
+    <style>
+      img{
+        height:200px;
+      }
+    </style>
+  </head>
+      <body>
+        <nav class="navbar navbar-dark bg-primary">
+          <div class="container">
+            <a href="#" class="navbar-brand">Weather Report <i class="fas fa-cloud-sun"></i></a>
+          </div>
+
+        </nav>
+        <div class="container">
+          <div class="row m-sm-3">
+            <%response.list.forEach(function(city,i){%>
+              <div class="col-md-4">
+                <div class="card mb-sm-3">
+                  <img src= <%=imgs[i] %> alt="" class="card-img-top">
+                  <div class="card-body">
+                    <h3 class="card-title"><%= city.name%></h3>
+                    <p class="card-text"><%= city.weather[0].main%></p>
+                    <p class="card-text"><%= city.weather[0].description%> </p>
+                    <p class="card-text">Temperature: <%=Math.round(city.main.temp)%>°C</p>
+                    <a href="<%=`https://www.google.com/search?q=${city.name}+weather+${city.sys.country}` %>" class="btn btn-success">See More</a>
+                  </div>
+                </div>
+              </div>
+            <% });%>
+          </div>
+        </div>
+
+
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+  </body>
+</html>
