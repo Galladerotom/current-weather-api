@@ -44,7 +44,6 @@ app.get("/", function (req, res) {
 
     bodyOfResponse = JSON.parse(body);
     console.log(bodyOfResponse);
-    var count = 0;
     var cities=[];
     bodyOfResponse.list.forEach((city) => {
       cities.push(city.name);
